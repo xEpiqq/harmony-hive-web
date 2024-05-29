@@ -1,0 +1,78 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        black_olive: {
+          DEFAULT: "#242e28",
+          100: "#070908",
+          200: "#0e1210",
+          300: "#161b18",
+          400: "#1d2520",
+          500: "#242e28",
+          600: "#4a5e52",
+          700: "#6f8e7b",
+          800: "#9fb4a7",
+          900: "#cfd9d3",
+        },
+        french_gray: {
+          DEFAULT: "#ced3dc",
+          100: "#242932",
+          200: "#475164",
+          300: "#6b7a96",
+          400: "#9da7ba",
+          500: "#ced3dc",
+          600: "#d9dde4",
+          700: "#e2e5eb",
+          800: "#eceef1",
+          900: "#f5f6f8",
+        },
+        naples_yellow: {
+          DEFAULT: "#f2dc5d",
+          100: "#3e3605",
+          200: "#7d6b0a",
+          300: "#bba10f",
+          400: "#edce20",
+          500: "#f2dc5d",
+          600: "#f5e37f",
+          700: "#f7ea9f",
+          800: "#faf1bf",
+          900: "#fcf8df",
+        },
+        mahogany: {
+          DEFAULT: "#c44900",
+          100: "#270e00",
+          200: "#4e1c00",
+          300: "#742b00",
+          400: "#9b3900",
+          500: "#c44900",
+          600: "#ff5f02",
+          700: "#ff8741",
+          800: "#ffaf81",
+          900: "#ffd7c0",
+        },
+        caramel: {
+          DEFAULT: "#be7c4d",
+          100: "#27180e",
+          200: "#4e311c",
+          300: "#75492a",
+          400: "#9c6238",
+          500: "#be7c4d",
+          600: "#cb956f",
+          700: "#d8b093",
+          800: "#e5cab7",
+          900: "#f2e5db",
+        },
+        beige: "#f5f5dc",
+      },
+    },
+  },
+  plugins: [],
+
+
+};
