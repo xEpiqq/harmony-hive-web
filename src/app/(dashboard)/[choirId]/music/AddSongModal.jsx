@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useContext } from "react";
 import { ChoirContext } from "../ChoirContext";
 
