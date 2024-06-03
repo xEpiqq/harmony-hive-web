@@ -32,6 +32,46 @@ export default function useChoir(choirId) {
     return data;
   };
 
+  const renameSong = async (songId, newName) => {
+    const response = await fetch(`/api/choir/${choirId}/songs/${songId}/rename`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ newName }),
+    });
+
+    if (response.status !== 200) {
+      const data = await response.json();
+      console.error("Error renaming song: ", data.message);
+      return;
+    }
+
+    // Update the state with the new song name
+    setSongs((prevSongs) =>
+      prevSongs.map((song) =>
+        song.songId === songId ? { ...song, name: newName } : song
+      )
+    );
+  };
+
+  const deleteSong = async (songId) => {
+    const response = await fetch(`/api/choir/${choirId}/songs/${songId}/delete`, {
+
+      method: "DELETE",
+    });
+
+    if (response.status !== 200) {
+      const data = await response.json();
+      console.error("Error deleting song: ", data.message);
+      return;
+    }
+
+    // Remove the song from the state
+    setSongs((prevSongs) => prevSongs.filter((song) => song.songId !== songId));
+  };
+
+
   const addCalendarEvent = async (event) => {
     const response = await fetch("/api/choir/" + choirId + "/calendar", {
       method: "POST",
@@ -103,9 +143,15 @@ export default function useChoir(choirId) {
     name,
     members,
     calendar,
+    renameSong,
     addSong,
+    deleteSong,
     reloadChoir: loadChoir,
     addFile,
     addCalendarEvent,
   };
 }
+
+/////////////// RENAME FUNCTION
+/////////////// NEW CODE - EXPERIMENTAL
+
